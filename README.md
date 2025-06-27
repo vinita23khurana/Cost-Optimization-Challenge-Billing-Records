@@ -1,5 +1,6 @@
-📦 Cost Optimization Challenge: Managing Billing Records in Azure Serverless Architecture
+# 📦 Cost Optimization Challenge: Managing Billing Records in Azure Serverless Architecture
 This project implements a cost-optimized, serverless architecture in Azure for managing billing records. It reduces Cosmos DB costs by tiering data into hot and cold storage, archiving rarely accessed records to Azure Blob Storage while maintaining API compatibility and availability.
+
 /
 ├── main.tf
 ├── variables.tf
@@ -13,7 +14,7 @@ This project implements a cost-optimized, serverless architecture in Azure for m
 │   │   └── function_app.tf
 └── README.md
 
-📌 Problem Statement
+# 📌 Problem Statement
 Billing records are stored in Azure Cosmos DB.
 
 Each record is up to 300 KB, and the system holds over 2 million records.
@@ -22,7 +23,7 @@ Records older than 90 days are rarely accessed but must remain available.
 
 Cosmos DB costs have escalated due to storage and throughput needs.
 
-🎯 Solution Overview
+# 🎯 Solution Overview
 Hot Data (< 3 months): Stored in Cosmos DB.
 
 Cold Data (> 3 months): Archived to Azure Blob Storage.
@@ -31,7 +32,7 @@ Read-through Azure Function: If data is missing in Cosmos DB, it fetches from Bl
 
 Cosmos DB is configured with TTL = 90 days to auto-delete archived records.
 
-🧱 Infrastructure (Provisioned via Terraform)
+# 🧱 Infrastructure (Provisioned via Terraform)
 Azure Cosmos DB with TTL & throughput
 
 Azure Blob Storage for archived billing records
@@ -40,7 +41,7 @@ Azure Function App (Python-based) with read-through fallback
 
 Modular Terraform setup with reusable components
 
-📁 Repository Structure
+# 📁 Repository Structure
 bash
 Copy
 Edit
@@ -53,7 +54,7 @@ Edit
 ├── function_code/         # Python code for read-through logic
 ├── diagrams/              # Architecture diagram
 └── README.md              # This file
-🧪 How It Works
+# 🧪 How It Works
 Billing records are written to Cosmos DB as usual.
 
 An Azure Data Factory (or Durable Function) job archives records older than 90 days to Blob Storage.
@@ -62,7 +63,7 @@ Cosmos DB automatically purges them using TTL.
 
 On read, the API first checks Cosmos DB. If not found, it transparently fetches the record from Blob Storage.
 
-🚀 Deployment
+# 🚀 Deployment
 bash
 Copy
 Edit
@@ -82,16 +83,16 @@ Function code is deployed from function_code/ directory (via zip or Azure CLI).
 
 ✅ Simple to deploy and maintain
 
-📊 Architecture Diagram
+# 📊 Architecture Diagram
 
-🔐 Security & Extensions
+# 🔐 Security & Extensions
 Secure access using Managed Identities (optional).
 
 Blob data can be compressed (e.g., GZip) or stored in Parquet for further cost reduction.
 
 Integrate with Azure Monitor for audit and performance tracking.
 
-🧩 Tools Used
+# 🧩 Tools Used
 Azure Cosmos DB
 
 Azure Blob Storage
