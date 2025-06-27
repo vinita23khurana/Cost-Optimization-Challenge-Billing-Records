@@ -1,19 +1,24 @@
 # 📦 Cost Optimization Challenge: Managing Billing Records in Azure Serverless Architecture
+
 This project implements a cost-optimized, serverless architecture in Azure for managing billing records. It reduces Cosmos DB costs by tiering data into hot and cold storage, archiving rarely accessed records to Azure Blob Storage while maintaining API compatibility and availability.
 
-/
- ├── main.tf
- ├── variables.tf
- ├── outputs.tf
- ├── modules/
- │   ├── cosmos/
- │   │   └── cosmos.tf
- │   ├── storage/
- │   │   └── blob.tf
- │   ├── function/
- │   │   └── function_app.tf
- └── README.md
+### 📂 Repository Structure
 
+```
+/
+├── main.tf
+├── variables.tf
+├── outputs.tf
+├── modules/
+│   ├── cosmos/
+│   │   └── cosmos.tf
+│   ├── storage/
+│   │   └── blob.tf
+│   ├── function/
+│   │   └── function_app.tf
+└── README.md
+```
+---
 ### 📌 Problem Statement
 Billing records are stored in Azure Cosmos DB.
 
@@ -51,7 +56,7 @@ Cosmos DB automatically purges them using TTL.
 On read, the API first checks Cosmos DB. If not found, it transparently fetches the record from Blob Storage.
 
 ## 🚀 Deployment
-
+---
 ### Initialize and deploy Terraform infrastructure
 terraform init
 terraform apply
@@ -69,7 +74,7 @@ Function code is deployed from function_code/ directory (via zip or Azure CLI).
 ✅ Simple to deploy and maintain
 
 ## 📊 Architecture Diagram
-
+---
 ### 🔐 Security & Extensions
 Secure access using Managed Identities (optional).
 
@@ -81,7 +86,5 @@ Integrate with Azure Monitor for audit and performance tracking.
 Azure Cosmos DB
 
 Azure Blob Storage
-
-Azure Functions (Python)
 
 Terraform (Infrastructure-as-Code)
