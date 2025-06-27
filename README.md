@@ -41,7 +41,7 @@ Azure Function App (Python-based) with read-through fallback
 
 Modular Terraform setup with reusable components
 
-# 🧪 How It Works
+### 🧪 How It Works
 Billing records are written to Cosmos DB as usual.
 
 An Azure Data Factory (or Durable Function) job archives records older than 90 days to Blob Storage.
@@ -50,9 +50,9 @@ Cosmos DB automatically purges them using TTL.
 
 On read, the API first checks Cosmos DB. If not found, it transparently fetches the record from Blob Storage.
 
-# 🚀 Deployment
+## 🚀 Deployment
 
-# Initialize and deploy Terraform infrastructure
+### Initialize and deploy Terraform infrastructure
 terraform init
 terraform apply
 After deployment, the Azure Function is ready to serve both hot and cold data paths.
@@ -68,16 +68,16 @@ Function code is deployed from function_code/ directory (via zip or Azure CLI).
 
 ✅ Simple to deploy and maintain
 
-# 📊 Architecture Diagram
+## 📊 Architecture Diagram
 
-# 🔐 Security & Extensions
+### 🔐 Security & Extensions
 Secure access using Managed Identities (optional).
 
 Blob data can be compressed (e.g., GZip) or stored in Parquet for further cost reduction.
 
 Integrate with Azure Monitor for audit and performance tracking.
 
-# 🧩 Tools Used
+### 🧩 Tools Used
 Azure Cosmos DB
 
 Azure Blob Storage
