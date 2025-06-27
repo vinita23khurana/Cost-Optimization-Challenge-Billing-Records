@@ -114,4 +114,6 @@ Azure Cosmos DB
 
 Azure Blob Storage
 
+Azure Functions (Python)
+
 Terraform (Infrastructure-as-Code)
