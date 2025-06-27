@@ -1,5 +1,4 @@
-**Cost Optimization Challenge: Managing Billing Records in Azure Serverless Architecture #**
-
+📦 Cost Optimization Challenge: Managing Billing Records in Azure Serverless Architecture
 This project implements a cost-optimized, serverless architecture in Azure for managing billing records. It reduces Cosmos DB costs by tiering data into hot and cold storage, archiving rarely accessed records to Azure Blob Storage while maintaining API compatibility and availability.
 /
 ├── main.tf
