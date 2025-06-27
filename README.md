@@ -58,8 +58,12 @@ On read, the API first checks Cosmos DB. If not found, it transparently fetches 
 ## 🚀 Deployment
 ---
 ### Initialize and deploy Terraform infrastructure
+```
 terraform init
+```
+```
 terraform apply
+```
 After deployment, the Azure Function is ready to serve both hot and cold data paths.
 
 Function code is deployed from function_code/ directory (via zip or Azure CLI).
