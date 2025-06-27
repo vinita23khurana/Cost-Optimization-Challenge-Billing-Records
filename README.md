@@ -2,8 +2,8 @@
 This project implements a cost-optimized, serverless architecture in Azure for managing billing records. It reduces Cosmos DB costs by tiering data into hot and cold storage, archiving rarely accessed records to Azure Blob Storage while maintaining API compatibility and availability.
 
 /
-├── main.tf
-├── variables.tf
+├── main.tf\n
+\n├── variables.tf\n
 ├── outputs.tf
 ├── modules/
 │   ├── cosmos/
@@ -14,7 +14,7 @@ This project implements a cost-optimized, serverless architecture in Azure for m
 │   │   └── function_app.tf
 └── README.md
 
-# 📌 Problem Statement
+## 📌 Problem Statement
 Billing records are stored in Azure Cosmos DB.
 
 Each record is up to 300 KB, and the system holds over 2 million records.
